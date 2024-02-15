@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/normalize.css" />
+        <link rel="stylesheet" href="./css/base.css" />
+        <link rel="stylesheet" href="./css/ui.css" />
+        <link rel="stylesheet" href="./css/header.css" />
+        <link rel="stylesheet" href="./css/tasks.css" />
+        <link rel="stylesheet" href="./css/task.css" />
+        <link rel="stylesheet" href="./css/add.css" />
+        <link rel="shortcut icon" href="todo.ico" type="image/x-icon" />
+        <title>Мои задачи</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <div class="logo">
+                    <img
+                        class="logo__img"
+                        src="./assets/images/task.svg"
+                        alt="картинка логотипа"
+                        width="60"
+                        height="60"
+                    />
+                </div>
+                <div class="header__actions">
+                    <select name="sort" id="sort" class="header__sort">
+                        <option value="все" class="header__option">все</option>
+                        <option value="выполненные" class="header__option">
+                            выполненные
+                        </option>
+                        <option value="активные" class="header__option">
+                            активные
+                        </option>
+                    </select>
+                    <button class="header__btn">Добавить задачу</button>
+                </div>
+            </header>
+            <div class="add">
+                <label class="add__label" for="task-title"
+                    >Заголовок задачи:</label
+                >
+                <input
+                    class="add__input"
+                    type="text"
+                    name="task-title"
+                    id="task-title"
+                />
+                <label class="add__label" for="task-description"
+                    >Описание задачи:</label
+                >
+                <textarea
+                    class="add__textarea"
+                    name="task-description"
+                    id="task-description"
+                    cols="30"
+                    rows="10"
+                ></textarea>
+                <button class="add__btn">Добавить</button>
+            </div>
+            <main class="tasks">
+                <h1 class="tasks__title">Мои задачи</h1>
+                <ul class="tasks__list">
+                    <li class="tasks__item task">
+                        <div class="task__inner">
+                            <h3 class="task__title">Заголовок</h3>
+                            <div class="task__action">
+                                <button class="task__btn">описание</button>
+                                <input type="checkbox" name="done" />
+                                <button class="task__btn">удалить</button>
+                            </div>
+                        </div>
+                        <p class="task__description">Описание задачи</p>
+                        <span class="task__date">11.05.2023</span>
+                    </li>
+                    <li class="tasks__item task">
+                        <div class="task__inner">
+                            <h3 class="task__title">Заголовок</h3>
+                            <div class="task__action">
+                                <button class="task__btn">описание</button>
+                                <input type="checkbox" name="done" />
+                                <button class="task__btn">удалить</button>
+                            </div>
+                        </div>
+                        <p class="task__description">Описание задачи</p>
+                        <span class="task__date">11.05.2023</span>
+                    </li>
+                </ul>
+            </main>
+        </div>
+        <script src="./index.js"></script>
+    </body>
+</html>

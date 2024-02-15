@@ -1,0 +1,36 @@
+.task {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid #575555;
+  border-radius: 6px;
+  margin-bottom: 3rem;
+  width: 100%;
+  gap: 1rem;
+}
+
+.task__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.task__description {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid #575555;
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+.task__action {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
