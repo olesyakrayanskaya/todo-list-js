@@ -35,7 +35,7 @@
                             активные
                         </option>
                     </select>
-                    <button class="header__btn">Добавить задачу</button>
+                    <button class="header__btn" id="add-task-form">Добавить задачу</button>
                 </div>
             </header>
             <div class="add">
@@ -58,7 +58,7 @@
                     cols="30"
                     rows="10"
                 ></textarea>
-                <button class="add__btn">Добавить</button>
+                <button class="add__btn" id="add-task">Добавить</button>
             </div>
             <main class="tasks">
                 <h1 class="tasks__title">Мои задачи</h1>
@@ -68,7 +68,7 @@
                             <h3 class="task__title">Заголовок</h3>
                             <div class="task__action">
                                 <button class="task__btn">описание</button>
-                                <input type="checkbox" name="done" />
+                                <input class="task__check" type="checkbox" name="done" />
                                 <button class="task__btn">удалить</button>
                             </div>
                         </div>
@@ -79,8 +79,8 @@
                         <div class="task__inner">
                             <h3 class="task__title">Заголовок</h3>
                             <div class="task__action">
-                                <button class="task__btn">описание</button>
-                                <input type="checkbox" name="done" />
+                                <button class="task__btn task__btn_noborder">описание</button>
+                                <input class="task__check" type="checkbox" name="done" />
                                 <button class="task__btn">удалить</button>
                             </div>
                         </div>
