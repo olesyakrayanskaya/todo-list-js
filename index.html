@@ -35,7 +35,9 @@
                             активные
                         </option>
                     </select>
-                    <button class="header__btn" id="add-task-form">Добавить задачу</button>
+                    <button class="header__btn" id="add-task-form">
+                        Добавить задачу
+                    </button>
                 </div>
             </header>
             <div class="add">
@@ -63,29 +65,43 @@
             <main class="tasks">
                 <h1 class="tasks__title">Мои задачи</h1>
                 <ul class="tasks__list">
-                    <li class="tasks__item task">
-                        <div class="task__inner">
+                    <li class="tasks__item task" id="1">
+                        <header class="task__header">
                             <h3 class="task__title">Заголовок</h3>
                             <div class="task__action">
-                                <button class="task__btn">описание</button>
-                                <input class="task__check" type="checkbox" name="done" />
-                                <button class="task__btn">удалить</button>
+                                <button class="task__btn-desc">описание</button>
+                                <input
+                                    class="task__check"
+                                    type="checkbox"
+                                    name="done"
+                                />
+                                <button class="task__btn-del">удалить</button>
                             </div>
-                        </div>
-                        <p class="task__description">Описание задачи</p>
-                        <span class="task__date">11.05.2023</span>
+                        </header>
+                        <p class="task__description" style="display: block;">Описание задачи</p>
+                        <footer class="task__footer">
+                            <button class="task__btn-close">скрыть</button>
+                            <span class="task__date">11.05.2023</span>
+                        </footer>
                     </li>
-                    <li class="tasks__item task">
-                        <div class="task__inner">
+                    <li class="tasks__item task" id="2">
+                        <header class="task__header">
                             <h3 class="task__title">Заголовок</h3>
                             <div class="task__action">
-                                <button class="task__btn task__btn_noborder">описание</button>
-                                <input class="task__check" type="checkbox" name="done" />
-                                <button class="task__btn">удалить</button>
+                                <button class="task__btn-desk">описание</button>
+                                <input
+                                    class="task__check"
+                                    type="checkbox"
+                                    name="done"
+                                />
+                                <button class="task__btn-del">удалить</button>
                             </div>
-                        </div>
-                        <p class="task__description">Описание задачи</p>
-                        <span class="task__date">11.05.2023</span>
+                        </header>
+                        <p class="task__description" style="display: block;">Описание задачи</p>
+                        <footer class="task__footer">
+                            <button class="task__btn-close">скрыть</button>
+                            <span class="task__date">11.05.2023</span>
+                        </footer>
                     </li>
                 </ul>
             </main>
