@@ -4,6 +4,7 @@ const addTaskFormBtn = document.getElementById('add-task-form');
 const addTaskBtn = document.getElementById('add-task');
 const addTaskForm = document.querySelector('.add');
 const taskSection = document.querySelector('.tasks__list');
+const taskSortBtn = document.getElementById('sort');
 
 let tasksList = new Map();
 let id = 3;
@@ -61,7 +62,7 @@ function createTaskItem(task) {
     newTaskBtnClose.addEventListener('click', () => {
         newTaskDescription.style.display = 'none';
     });
-    newTaskFooter.append(newTaskBtnClose)
+    newTaskFooter.append(newTaskBtnClose);
     let newTaskDate = document.createElement('span');
     newTaskDate.className = 'task__date';
     newTaskDate.innerHTML = task.date.toLocaleDateString();
@@ -79,6 +80,9 @@ function createTaskItem(task) {
     newTaskCheck.addEventListener('change', () => {
         task.isDone = !task.isDone;
     });
+    task.isDone === true
+        ? newTaskCheck.setAttribute('checked', true)
+        : newTaskCheck.removeAttribute('checked');
     newTaskAction.append(newTaskCheck);
     let newTaskBtnDel = document.createElement('button');
     newTaskBtnDel.className = 'task__btn-del';
@@ -104,4 +108,39 @@ addTaskBtn.addEventListener('click', () => {
 function deleteTaskFromList(id) {
     tasksList.delete(id);
     return tasksList;
+}
+
+function filterTasks(value) {
+    let filteredTasks = Array.from(tasksList.values()).filter(
+        (task) => task.isDone === value
+    );
+    return filteredTasks;
+}
+
+taskSortBtn.addEventListener('change', () => {
+    switch (taskSortBtn.value) {
+        case 'все':
+            removeAllChildNodes(taskSection);
+            console.log(tasksList);
+            tasksList.forEach((task) => createTaskItem(task));
+            break;
+        case 'выполненные':
+            let isDoneTasks = filterTasks(true);
+            console.log(isDoneTasks);
+            removeAllChildNodes(taskSection);
+            isDoneTasks.forEach((task) => createTaskItem(task));
+            break;
+        case 'активные':
+            let isActiveTasks = filterTasks(false);
+            console.log(isActiveTasks);
+            removeAllChildNodes(taskSection);
+            isActiveTasks.forEach((task) => createTaskItem(task));
+            break;
+    }
+});
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
