@@ -35,7 +35,6 @@ function clearInputs() {
 }
 
 function createTask(task) {
-
     let newTask = createNewNode('li', 'tasks__item task');
     newTask.setAttribute('id', task.id);
     taskSection.append(newTask);
@@ -49,15 +48,14 @@ function createTask(task) {
 }
 
 function createFooter(task, taskDescription) {
-
     let taskFooter = createNewNode('footer', 'task__footer');
 
-    let btnClose = createNewNode('button', 'task__btn-close');
-    btnClose.innerHTML = 'скрыть';
-    btnClose.addEventListener('click', () => {
-        taskDescription.style.display = 'none';
-    });
-    taskFooter.append(btnClose);
+    // let btnClose = createNewNode('button', 'task__btn-close');
+    // btnClose.innerHTML = 'скрыть';
+    // btnClose.addEventListener('click', () => {
+    //     taskDescription.style.display = 'none';
+    // });
+    // taskFooter.append(btnClose);
 
     let taskDate = createNewNode('span', 'task__date');
     taskDate.innerHTML = `Создана ${task.date.toLocaleDateString()}`;
@@ -67,7 +65,6 @@ function createFooter(task, taskDescription) {
 }
 
 function createHeader(task, taskDescription, newTask) {
-
     let taskHeader = createNewNode('header', 'task__header');
 
     let taskTitle = createNewNode('h3', 'task__title');
@@ -81,13 +78,18 @@ function createHeader(task, taskDescription, newTask) {
 }
 
 function createAction(task, taskDescription, newTask) {
-
     let taskAction = createNewNode('div', 'task__action');
 
     let descriptionBtn = createNewNode('button', 'task__btn-desc');
-    descriptionBtn.innerHTML = 'описание';
+    descriptionBtn.innerHTML = 'показать описание';
     descriptionBtn.addEventListener('click', () => {
-        taskDescription.style.display = 'block';
+        if (taskDescription.style.display == 'none') {
+            taskDescription.style.display = 'block';
+            descriptionBtn.innerHTML = 'скрыть описание';
+        } else {
+            taskDescription.style.display = 'none';
+            descriptionBtn.innerHTML = 'показать описание';
+        }
     });
     taskAction.append(descriptionBtn);
 
