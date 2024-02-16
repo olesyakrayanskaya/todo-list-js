@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/normalize.css" />
         <link rel="stylesheet" href="./css/base.css" />
-        <link rel="stylesheet" href="./css/ui.css" />
         <link rel="stylesheet" href="./css/header.css" />
         <link rel="stylesheet" href="./css/tasks.css" />
         <link rel="stylesheet" href="./css/task.css" />
@@ -26,7 +25,7 @@
                     />
                 </div>
                 <div class="header__actions">
-                    <select name="sort" id="sort" class="header__sort">
+                    <select class="header__sort" name="sort" id="sort">
                         <option value="все" class="header__option">все</option>
                         <option value="выполненные" class="header__option">
                             выполненные
@@ -75,7 +74,7 @@
                                     type="checkbox"
                                     name="done"
                                 />
-                                <button class="task__btn-del">удалить</button>
+                                <button class="task__btn-del">&times;</button>
                             </div>
                         </header>
                         <p class="task__description" style="display: block;">Описание задачи</p>
@@ -87,13 +86,13 @@
                         <header class="task__header">
                             <h3 class="task__title">Заголовок</h3>
                             <div class="task__action">
-                                <button class="task__btn-desk">описание</button>
+                                <button class="task__btn-desc">описание</button>
                                 <input
                                     class="task__check"
                                     type="checkbox"
                                     name="done"
                                 />
-                                <button class="task__btn-del">удалить</button>
+                                <button class="task__btn-del">&times;</button>
                             </div>
                         </header>
                         <p class="task__description" style="display: block;">Описание задачи</p>

@@ -8,6 +8,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1.5rem;
+  animation: move ease-out 0.1s 1;
 }
 
 .add__input {
@@ -16,6 +17,7 @@
   border-radius: inherit;
   border: 1px solid #575555;
   padding: 0.5rem 1rem;
+  background-color: #ecf0e7;
 }
 
 .add__textarea {
@@ -24,4 +26,43 @@
   border-radius: inherit;
   border: 1px solid #575555;
   padding: 0.5rem 1rem;
+  background-color: #ecf0e7;
+}
+
+.add__btn {
+  border: 1px solid #705e47;
+  background-color: #e2ddd7;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 30px;
+  transition: all 0.4s;
+}
+
+.add__btn:hover {
+  background-color: #d8d2c9;
+}
+
+@keyframes move {
+
+  from {
+    transform: translateY(-50px);
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+}
+
+@media (max-width: 420px) {
+  .add__btn {
+    width: 100%;
+  }  
 }

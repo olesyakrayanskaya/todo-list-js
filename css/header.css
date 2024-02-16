@@ -6,3 +6,32 @@
   padding: 1rem 0;
   margin-bottom: 2rem;
 }
+
+.header__actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.header__sort {
+  border: 1px solid #705e47;
+  background-color: #e2ddd7;
+  border-radius: 3px;
+  width: 200px;
+  height: 30px;
+}
+
+.header__btn {
+  border: 1px solid #705e47;
+  background-color: #e2ddd7;
+  border-radius: 3px;
+  width: 200px;
+  height: 30px;
+  transition: all 0.4s;
+}
+
+.header__btn:hover {
+  background-color: #d8d2c9;
+}

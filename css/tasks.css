@@ -13,3 +13,9 @@
   justify-content: flex-start;
   list-style: none;
 }
+
+@media (max-width: 420px) {
+  .tasks__title {
+    font-size: 1.5rem;
+  }  
+}
