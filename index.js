@@ -35,48 +35,47 @@ function clearInputs() {
 }
 
 function createTaskItem(task) {
-    let newTask = document.createElement('li');
-    newTask.className = 'tasks__item task';
+    let newTask = createNewNode('li', 'tasks__item task');
     newTask.setAttribute('id', task.id);
     taskSection.append(newTask);
-    let newLiHeader = document.createElement('header');
-    newLiHeader.className = 'task__header';
+
+    let newLiHeader = createNewNode('header', 'task__header');
     newTask.append(newLiHeader);
-    let newTaskTitle = document.createElement('h3');
-    newTaskTitle.className = 'task__title';
+
+    let newTaskTitle = createNewNode('h3', 'task__title');
     newTaskTitle.innerHTML = task.title;
     newLiHeader.append(newTaskTitle);
-    let newTaskAction = document.createElement('div');
-    newTaskAction.className = 'task__action';
+
+    let newTaskAction = createNewNode('div', 'task__action');
     newLiHeader.append(newTaskAction);
-    let newTaskDescription = document.createElement('p');
-    newTaskDescription.className = 'task__description';
+
+    let newTaskDescription = createNewNode('p', 'task__description');
     newTaskDescription.innerHTML = task.description;
     newTask.append(newTaskDescription);
-    let newTaskFooter = document.createElement('footer');
-    newTaskFooter.className = 'task__footer';
+
+    let newTaskFooter = createNewNode('footer', 'task__footer');
     newTask.append(newTaskFooter);
-    let newTaskBtnClose = document.createElement('button');
-    newTaskBtnClose.className = 'task__btn-close';
+
+    let newTaskBtnClose = createNewNode('button', 'task__btn-close');
     newTaskBtnClose.innerHTML = 'скрыть';
     newTaskBtnClose.addEventListener('click', () => {
         newTaskDescription.style.display = 'none';
     });
     newTaskFooter.append(newTaskBtnClose);
-    let newTaskDate = document.createElement('span');
-    newTaskDate.className = 'task__date';
+
+    let newTaskDate = createNewNode('span', 'task__date');
     newTaskDate.innerHTML = task.date.toLocaleDateString();
     newTaskFooter.append(newTaskDate);
-    let newTaskBtn = document.createElement('button');
-    newTaskBtn.className = 'task__btn-desc';
+
+    let newTaskBtn = createNewNode('button', 'task__btn-desc');
     newTaskBtn.innerHTML = 'описание';
     newTaskBtn.addEventListener('click', () => {
         newTaskDescription.style.display = 'block';
     });
     newTaskAction.append(newTaskBtn);
-    let newTaskCheck = document.createElement('input');
+
+    let newTaskCheck = createNewNode('input', 'task__check');
     newTaskCheck.type = 'checkbox';
-    newTaskCheck.className = 'task__check';
     newTaskCheck.addEventListener('change', () => {
         task.isDone = !task.isDone;
     });
@@ -84,8 +83,8 @@ function createTaskItem(task) {
         ? newTaskCheck.setAttribute('checked', true)
         : newTaskCheck.removeAttribute('checked');
     newTaskAction.append(newTaskCheck);
-    let newTaskBtnDel = document.createElement('button');
-    newTaskBtnDel.className = 'task__btn-del';
+
+    let newTaskBtnDel = createNewNode('button', 'task__btn-del');
     newTaskBtnDel.innerHTML = 'удалить';
     newTaskBtnDel.addEventListener('click', () => {
         deleteTaskFromList(task.id);
@@ -94,16 +93,11 @@ function createTaskItem(task) {
     newTaskAction.append(newTaskBtnDel);
 }
 
-addTaskFormBtn.addEventListener('click', () => {
-    addTaskForm.style.display = 'flex';
-});
-
-addTaskBtn.addEventListener('click', () => {
-    addTaskForm.style.display = 'none';
-    let task = addTask();
-    createTaskItem(task);
-    clearInputs();
-});
+function createNewNode(nodeTag, className) {
+    let nodeName = document.createElement(`${nodeTag}`);
+    nodeName.className = `${className}`;
+    return nodeName;
+}
 
 function deleteTaskFromList(id) {
     tasksList.delete(id);
@@ -117,30 +111,38 @@ function filterTasks(value) {
     return filteredTasks;
 }
 
-taskSortBtn.addEventListener('change', () => {
-    switch (taskSortBtn.value) {
-        case 'все':
-            removeAllChildNodes(taskSection);
-            console.log(tasksList);
-            tasksList.forEach((task) => createTaskItem(task));
-            break;
-        case 'выполненные':
-            let isDoneTasks = filterTasks(true);
-            console.log(isDoneTasks);
-            removeAllChildNodes(taskSection);
-            isDoneTasks.forEach((task) => createTaskItem(task));
-            break;
-        case 'активные':
-            let isActiveTasks = filterTasks(false);
-            console.log(isActiveTasks);
-            removeAllChildNodes(taskSection);
-            isActiveTasks.forEach((task) => createTaskItem(task));
-            break;
-    }
-});
-
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
+
+addTaskFormBtn.addEventListener('click', () => {
+    addTaskForm.style.display = 'flex';
+});
+
+addTaskBtn.addEventListener('click', () => {
+    addTaskForm.style.display = 'none';
+    let task = addTask();
+    createTaskItem(task);
+    clearInputs();
+});
+
+taskSortBtn.addEventListener('change', () => {
+    switch (taskSortBtn.value) {
+        case 'все':
+            removeAllChildNodes(taskSection);
+            tasksList.forEach((task) => createTaskItem(task));
+            break;
+        case 'выполненные':
+            let isDoneTasks = filterTasks(true);
+            removeAllChildNodes(taskSection);
+            isDoneTasks.forEach((task) => createTaskItem(task));
+            break;
+        case 'активные':
+            let isActiveTasks = filterTasks(false);
+            removeAllChildNodes(taskSection);
+            isActiveTasks.forEach((task) => createTaskItem(task));
+            break;
+    }
+});
