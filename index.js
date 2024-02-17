@@ -162,9 +162,6 @@ function createCheckbox(task) {
     isDoneCheckbox.addEventListener('change', () => {
         task.isDone = !task.isDone;
     });
-    isDoneCheckbox.addEventListener('click', () => {
-        task.isDone = !task.isDone;
-    });
     task.isDone === true
         ? isDoneCheckbox.setAttribute('checked', true)
         : isDoneCheckbox.removeAttribute('checked');

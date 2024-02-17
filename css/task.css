@@ -111,7 +111,7 @@
 .task__btn-del:hover {
   transform: scale(1.3);
 }
-/* 
+
 @media (max-width: 768px) {
   .task__check {
     opacity: 1;
@@ -151,4 +151,4 @@
   .task__btn-desc {
     font-size: 0.8rem;
   }
-} */
+}
