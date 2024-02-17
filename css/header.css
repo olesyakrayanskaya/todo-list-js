@@ -4,7 +4,7 @@
   align-items: center;
   padding: 1rem;
   background-color: #ffffff;
-  border-radius: 12px 12px 0 0;
+  border-radius: 0.75rem 0.75rem 0 0;
 }
 
 .header__actions {
@@ -25,9 +25,9 @@
   border: none;
   background-color: rgb(148, 218, 212);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
+  font-size: 3.125rem;
   font-weight: 600;
   transition: all 0.4s;
   display: flex;

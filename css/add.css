@@ -1,12 +1,13 @@
 .add {
   padding: 1.5rem;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   display: none;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1.5rem;
-  animation: move ease-out 0.1s 1;
+  -webkit-animation: move ease-out 0.1s 1;
+          animation: move ease-out 0.1s 1;
   background-color: #ffffff;
 }
 
@@ -32,9 +33,9 @@
   border: none;
   background-color: rgb(148, 218, 212);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
+  font-size: 3.125rem;
   font-weight: 600;
   transition: all 0.4s;
   display: flex;
@@ -46,6 +47,22 @@
 
 .add__btn:hover {
   background-color: rgb(243, 218, 76);
+}
+
+@-webkit-keyframes move {
+
+  from {
+    transform: translateY(-50px);
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+  
 }
 
 @keyframes move {
