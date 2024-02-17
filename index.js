@@ -133,7 +133,7 @@ function createAction(task, taskDescription, newTask) {
         taskAction.append(createDescriptionBtn(taskDescription));
     }
     taskAction.append(createCheckbox(task));
-    taskAction.append(createLabel());
+    taskAction.append(createLabel(task));
     taskAction.append(createDeleteTaskBtn(task, newTask));
 
     return taskAction;
@@ -158,8 +158,11 @@ function createDescriptionBtn(taskDescription) {
 function createCheckbox(task) {
     let isDoneCheckbox = createNewNode('input', 'task__check');
     isDoneCheckbox.type = 'checkbox';
-    isDoneCheckbox.setAttribute('id', 'done');
+    isDoneCheckbox.setAttribute('id', `done${task.id}`);
     isDoneCheckbox.addEventListener('change', () => {
+        task.isDone = !task.isDone;
+    });
+    isDoneCheckbox.addEventListener('click', () => {
         task.isDone = !task.isDone;
     });
     task.isDone === true
@@ -169,9 +172,9 @@ function createCheckbox(task) {
     return isDoneCheckbox;
 }
 
-function createLabel() {
+function createLabel(task) {
     let label = createNewNode('label', 'task__label');
-    label.setAttribute('for', 'done');
+    label.setAttribute('for', `done${task.id}`);
     label.innerHTML = '&#10003;';
 
     return label;
