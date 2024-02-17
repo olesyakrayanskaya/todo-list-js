@@ -7,7 +7,7 @@ const taskSection = document.querySelector('.tasks__list');
 const taskFilterBtn = document.getElementById('sort');
 
 let tasksList = new Map();
-let id = 3;
+let id = 0;
 
 const taskTitleInput = document.getElementById('task-title');
 const taskDescriptionInput = document.getElementById('task-description');
@@ -133,6 +133,7 @@ function createAction(task, taskDescription, newTask) {
         taskAction.append(createDescriptionBtn(taskDescription));
     }
     taskAction.append(createCheckbox(task));
+    taskAction.append(createLabel());
     taskAction.append(createDeleteTaskBtn(task, newTask));
 
     return taskAction;
@@ -157,6 +158,7 @@ function createDescriptionBtn(taskDescription) {
 function createCheckbox(task) {
     let isDoneCheckbox = createNewNode('input', 'task__check');
     isDoneCheckbox.type = 'checkbox';
+    isDoneCheckbox.setAttribute('id', 'done');
     isDoneCheckbox.addEventListener('change', () => {
         task.isDone = !task.isDone;
     });
@@ -167,9 +169,17 @@ function createCheckbox(task) {
     return isDoneCheckbox;
 }
 
+function createLabel() {
+    let label = createNewNode('label', 'task__label');
+    label.setAttribute('for', 'done');
+    label.innerHTML = '&#10003;';
+
+    return label;
+}
+
 function createDeleteTaskBtn(task, newTask) {
     let deleteTaskBtn = createNewNode('button', 'task__btn-del');
-    deleteTaskBtn.innerHTML = '&times;';
+    deleteTaskBtn.innerHTML = '&#10007;';
     deleteTaskBtn.addEventListener('click', () => {
         deleteTaskFromList(task.id);
         newTask.remove();
