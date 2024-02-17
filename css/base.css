@@ -20,9 +20,10 @@ html {
 body {
   height: auto;
   min-height: 100%;
-  background-color: #f1e5d3;
+  background-color: rgb(250, 247, 243);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   color: #173006;
@@ -39,10 +40,11 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 900px;
   width: 100%;
   padding: 1rem;
   flex: 1 0 auto;
+  margin-top: 4rem;
 }
 
 :active,
@@ -55,4 +57,12 @@ button,
 select {
   cursor: pointer;
   color: #173006;
+}
+
+@media (max-width: 600px) {
+
+  .container {
+    margin-top: 0;
+  }
+
 }

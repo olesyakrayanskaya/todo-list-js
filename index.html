@@ -18,10 +18,10 @@
                 <div class="logo">
                     <img
                         class="logo__img"
-                        src="./assets/images/task.svg"
+                        src="./assets/images/notes.svg"
                         alt="картинка логотипа"
-                        width="60"
-                        height="60"
+                        width="120"
+                        height="120"
                     />
                 </div>
                 <div class="header__actions">
@@ -35,7 +35,7 @@
                         </option>
                     </select>
                     <button class="header__btn" id="add-task-form">
-                        Добавить задачу
+                        &#43;
                     </button>
                 </div>
             </header>
@@ -59,7 +59,7 @@
                     cols="30"
                     rows="10"
                 ></textarea>
-                <button class="add__btn" id="add-task">Добавить</button>
+                <button class="add__btn" id="add-task">&#43;</button>
             </div>
             <main class="tasks">
                 <h1 class="tasks__title">Мои задачи</h1>
@@ -73,11 +73,17 @@
                                     class="task__check"
                                     type="checkbox"
                                     name="done"
+                                    id="done"
                                 />
-                                <button class="task__btn-del">&times;</button>
+                                <label class="task__label" for="done"
+                                    >&#10003;</label
+                                >
+                                <button class="task__btn-del">&#10007;</button>
                             </div>
                         </header>
-                        <p class="task__description" style="display: block;">Описание задачи</p>
+                        <p class="task__description" style="display: block">
+                            Описание задачи
+                        </p>
                         <footer class="task__footer">
                             <span class="task__date">Создана 11.05.2023</span>
                         </footer>
@@ -95,7 +101,9 @@
                                 <button class="task__btn-del">&times;</button>
                             </div>
                         </header>
-                        <p class="task__description" style="display: block;">Описание задачи</p>
+                        <p class="task__description" style="display: block">
+                            Описание задачи
+                        </p>
                         <footer class="task__footer">
                             <span class="task__date">Создана 11.05.2023</span>
                         </footer>
