@@ -134,14 +134,19 @@
 }
 
 @media (max-width: 450px) {
+
   .task__header {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     gap: 1rem;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     flex-wrap: nowrap;
+  }
+
+  .task__footer {
+    justify-content: center;
   }
 
   .task__action {
