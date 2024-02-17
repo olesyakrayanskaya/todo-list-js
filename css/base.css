@@ -43,8 +43,7 @@ body {
   max-width: 900px;
   width: 100%;
   padding: 1rem;
-  flex: 1 0 auto;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 :active,
