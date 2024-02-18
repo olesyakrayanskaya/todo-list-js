@@ -46,12 +46,6 @@ body {
   margin-top: 2rem;
 }
 
-:active,
-:hover,
-:focus {
-  outline: none;
-}
-
 button,
 select {
   cursor: pointer;
