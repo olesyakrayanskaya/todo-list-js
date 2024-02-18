@@ -129,8 +129,11 @@
     border: 1px solid #e72a2a;
     background-color: #e7d5d5;
     border-radius: 3px;
-  }  
+  }
 
+  .task__btn-desc:hover {
+    border-bottom: transparent;
+  }
 }
 
 @media (max-width: 450px) {
