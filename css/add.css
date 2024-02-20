@@ -45,6 +45,10 @@
   transition: all 0.4s;
 }
 
+.add__btn:focus {
+  outline: 3px double rgb(148, 218, 212);
+}
+
 .add__btn:hover {
   background-color: rgb(243, 218, 76);
 }
